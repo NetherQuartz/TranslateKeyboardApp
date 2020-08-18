@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="en_up" type="string">
+        QWERTYUIOP{}|ASDFGHJKL:\"ZXCVBNM&lt;&gt;?
+    </item>
+    <item name="en_low" type="string">
+        qwertyuiop[]\\asdfghjkl;\'zxcvbnm,./
+    </item>
+    <item name="ru_up" type="string">
+        ЙЦУКЕНГШЩЗХЪ/ФЫВАПРОЛДЖЭЯЧСМИТЬБЮ,
+    </item>
+    <item name="ru_low" type="string">
+        йцукенгшщзхъ\\фывапролджэячсмитьбю.
+    </item>
+</resources>
