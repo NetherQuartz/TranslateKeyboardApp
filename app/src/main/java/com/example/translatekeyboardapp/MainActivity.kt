@@ -1,13 +1,21 @@
 package com.example.translatekeyboardapp
 
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
+
+    private var clipboardManager: ClipboardManager? = null
+    private var clipData: ClipData? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -78,6 +86,22 @@ class MainActivity : AppCompatActivity() {
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
         })
 
+        val copy = findViewById<Button>(R.id.copy)
+        val paste = findViewById<Button>(R.id.paste)
+
+        clipboardManager = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager?
+
+        copy.setOnClickListener {
+            clipData = ClipData.newPlainText("TranslatedText", output.text)
+            if (clipData == null) return@setOnClickListener
+            clipboardManager?.setPrimaryClip(clipData!!)
+            Toast.makeText(this, resources.getString(R.string.copied), Toast.LENGTH_SHORT).show()
+        }
+
+        paste.setOnClickListener {
+            val text = clipboardManager?.primaryClip?.getItemAt(0)?.text ?: return@setOnClickListener
+            input.setText(text)
+        }
     }
 }
 

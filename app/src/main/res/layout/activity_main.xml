@@ -4,13 +4,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <EditText
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end">
+
+        <Button
+            android:id="@+id/copy"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="скоп" />
+
+        <Button
+            android:id="@+id/paste"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="встав"/>
+
+    </LinearLayout>
+
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textMultiLine|textNoSuggestions" />
 
-    <EditText
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/output"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
