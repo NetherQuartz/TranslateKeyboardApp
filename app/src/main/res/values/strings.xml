@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Перевод раскладки</string>
+    <string name="ambiguous_text">Продолжайте вводить</string>
 </resources>

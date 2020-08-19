@@ -6,7 +6,6 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.widget.EditText
-import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,31 +27,58 @@ class MainActivity : AppCompatActivity() {
         Log.d("keys", keysEnLow)
 
         input.addTextChangedListener(object : TextWatcher {
+
+            private var layout: Layouts = Layouts.Any
+
             override fun afterTextChanged(text: Editable?) {
-                var layout: Layouts = Layouts.Any
-                for (c in text.toString()) {
+                if (text == null) return
+
+                for (c in text) {
                     layout = when {
                         (c in keysEnLow || c in keysEnUp) && (c in keysRuLow || c in keysRuUp) -> Layouts.Any
                         c in keysEnLow || c in keysEnUp -> Layouts.En
                         c in keysRuLow || c in keysRuUp -> Layouts.Ru
-                        else -> Layouts.None
+                        else -> Layouts.Any
                     }
-                    if (layout != Layouts.None && layout != Layouts.Any) break
+                    if (layout != Layouts.Any) break
                 }
 
-                Toast.makeText(this@MainActivity, layout.toString(), Toast.LENGTH_SHORT).show()
+                Log.d("Layout", "$layout $text")
 
-                output.setText(text.toString())
+                output.setText(when (layout) {
+                    Layouts.Any -> resources.getString(R.string.ambiguous_text)
+                    Layouts.En -> {
+                        var s = ""
+                        for (c in text) {
+                            val i = (keysEnLow + keysEnUp).indexOfFirst { it == c}
+                            s += if (i != -1) {
+                                (keysRuLow + keysRuUp)[i]
+                            } else {
+                                c
+                            }
+                        }
+                        s
+                    }
+                    Layouts.Ru -> {
+                        var s = ""
+                        for (c in text) {
+                            val i = (keysRuLow + keysRuUp).indexOfFirst { it == c }
+                            s += if (i != -1) {
+                                (keysEnLow + keysEnUp)[i]
+                            } else {
+                                c
+                            }
+                        }
+                        s
+                    }
+                })
             }
 
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+            override fun beforeTextChanged(text: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-
         })
 
     }
 }
 
-enum class Layouts {
-    Any, None, Ru, En
-}
+enum class Layouts { Any, Ru, En }
