@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">Перевод раскладки</string>
-    <string name="ambiguous_text">Продолжайте вводить…</string>
-    <string name="copied">Скопировано!</string>
+    <string name="app_name">Translate Keyboard</string>
+    <string name="ambiguous_text">Go on typing…</string>
+    <string name="copied">Copied!</string>
 
-    <string name="copyBtn">Скопировать</string>
-    <string name="pasteBtn">Вставить</string>
+    <string name="copyBtn">Copy</string>
+    <string name="pasteBtn">Paste</string>
 </resources>
