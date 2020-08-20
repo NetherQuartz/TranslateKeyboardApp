@@ -10,6 +10,7 @@ import android.text.TextWatcher
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
@@ -86,8 +87,8 @@ class MainActivity : AppCompatActivity() {
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
         })
 
-        val copy = findViewById<Button>(R.id.copy)
-        val paste = findViewById<Button>(R.id.paste)
+        val copy = findViewById<ImageButton>(R.id.copy)
+        val paste = findViewById<ImageButton>(R.id.paste)
 
         clipboardManager = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager?
 
