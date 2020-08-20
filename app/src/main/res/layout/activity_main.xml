@@ -47,7 +47,7 @@
 
     </LinearLayout>
 
-    <com.google.android.material.textfield.TextInputEditText
+    <EditText
         android:id="@+id/input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -60,7 +60,7 @@
         android:textColor="@color/colorPrimary"
         android:inputType="textMultiLine|textNoSuggestions" />
 
-    <com.google.android.material.textfield.TextInputEditText
+    <EditText
         android:id="@+id/output"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
