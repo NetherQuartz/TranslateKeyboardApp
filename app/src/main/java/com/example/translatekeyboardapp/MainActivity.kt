@@ -44,7 +44,11 @@ class MainActivity : AppCompatActivity() {
             private var layout: Layouts = Layouts.Any
 
             override fun afterTextChanged(text: Editable?) {
-                if (text == null) return
+                if (text == null || input.text.isEmpty()) {
+                    output.setText("")
+                    output.hint = ""
+                    return
+                }
 
                 for (c in text) {
                     layout = when {
@@ -58,8 +62,10 @@ class MainActivity : AppCompatActivity() {
 
                 Log.d("Layout", "$layout $text")
 
-                output.setText(when (layout) {
-                    Layouts.Any -> resources.getString(R.string.ambiguous_text)
+                when (layout) {
+                    Layouts.Any -> {
+                        output.hint = resources.getString(R.string.ambiguous_text)
+                    }
                     Layouts.En -> {
                         var s = ""
                         for (c in text) {
@@ -70,7 +76,7 @@ class MainActivity : AppCompatActivity() {
                                 c
                             }
                         }
-                        s
+                        output.setText(s)
                     }
                     Layouts.Ru -> {
                         var s = ""
@@ -82,9 +88,9 @@ class MainActivity : AppCompatActivity() {
                                 c
                             }
                         }
-                        s
+                        output.setText(s)
                     }
-                })
+                }
             }
 
             override fun beforeTextChanged(text: CharSequence?, p1: Int, p2: Int, p3: Int) {}

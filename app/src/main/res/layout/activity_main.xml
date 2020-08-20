@@ -71,6 +71,7 @@
         android:paddingHorizontal="7dp"
         android:textSize="23sp"
         android:textColor="@color/colorPrimary"
+        android:textColorHint="@color/colorHint"
         android:inputType="textMultiLine|textNoSuggestions" />
 
 </LinearLayout>
