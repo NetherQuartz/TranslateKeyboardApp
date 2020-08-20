@@ -111,7 +111,7 @@ class MainActivity : AppCompatActivity() {
 
         paste.setOnClickListener {
             val text = clipboardManager?.primaryClip?.getItemAt(0)?.text ?: return@setOnClickListener
-            input.setText(text)
+            input.setTextKeepState(text)
         }
     }
 }
