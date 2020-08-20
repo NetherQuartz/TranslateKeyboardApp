@@ -8,7 +8,6 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
-import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Toast
@@ -26,6 +25,11 @@ class MainActivity : AppCompatActivity() {
         val keysRuLow = resources.getString(R.string.ru_low)
         val keysEnUp = resources.getString(R.string.en_up)
         val keysEnLow = resources.getString(R.string.en_low)
+        val keysRuUpperRow = resources.getString(R.string.ru_upperRow)
+        val keysEnUpperRow = resources.getString(R.string.en_upperRow)
+
+        val keysEn = keysEnLow + keysEnUp + keysEnUpperRow
+        val keysRu = keysRuLow + keysRuUp + keysRuUpperRow
 
         val input = findViewById<EditText>(R.id.input)
         val output = findViewById<EditText>(R.id.output)
@@ -44,9 +48,9 @@ class MainActivity : AppCompatActivity() {
 
                 for (c in text) {
                     layout = when {
-                        (c in keysEnLow || c in keysEnUp) && (c in keysRuLow || c in keysRuUp) -> Layouts.Any
-                        c in keysEnLow || c in keysEnUp -> Layouts.En
-                        c in keysRuLow || c in keysRuUp -> Layouts.Ru
+                        c in keysEn && c in keysRu -> Layouts.Any
+                        c in keysEn -> Layouts.En
+                        c in keysRu -> Layouts.Ru
                         else -> Layouts.Any
                     }
                     if (layout != Layouts.Any) break
@@ -59,9 +63,9 @@ class MainActivity : AppCompatActivity() {
                     Layouts.En -> {
                         var s = ""
                         for (c in text) {
-                            val i = (keysEnLow + keysEnUp).indexOfFirst { it == c}
+                            val i = keysEn.indexOfFirst { it == c}
                             s += if (i != -1) {
-                                (keysRuLow + keysRuUp)[i]
+                                keysRu[i]
                             } else {
                                 c
                             }
@@ -71,9 +75,9 @@ class MainActivity : AppCompatActivity() {
                     Layouts.Ru -> {
                         var s = ""
                         for (c in text) {
-                            val i = (keysRuLow + keysRuUp).indexOfFirst { it == c }
+                            val i = keysRu.indexOfFirst { it == c }
                             s += if (i != -1) {
-                                (keysEnLow + keysEnUp)[i]
+                                keysEn[i]
                             } else {
                                 c
                             }
