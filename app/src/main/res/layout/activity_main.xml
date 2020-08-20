@@ -47,31 +47,42 @@
 
     </LinearLayout>
 
-    <EditText
-        android:id="@+id/input"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/my_edittext"
-        android:minHeight="80dp"
-        android:layout_marginBottom="10dp"
-        android:paddingVertical="20dp"
-        android:paddingHorizontal="7dp"
-        android:textSize="23sp"
-        android:textColor="@color/colorPrimary"
-        android:inputType="textMultiLine|textNoSuggestions" />
+        android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/output"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="80dp"
-        android:enabled="false"
-        android:background="@drawable/my_edittext"
-        android:paddingVertical="20dp"
-        android:paddingHorizontal="7dp"
-        android:textSize="23sp"
-        android:textColor="@color/colorPrimary"
-        android:textColorHint="@color/colorHint"
-        android:inputType="textMultiLine|textNoSuggestions" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
+            <EditText
+                android:id="@+id/input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/my_edittext"
+                android:minHeight="80dp"
+                android:layout_marginBottom="10dp"
+                android:paddingVertical="20dp"
+                android:paddingHorizontal="7dp"
+                android:textSize="23sp"
+                android:textColor="@color/colorPrimary"
+                android:inputType="textMultiLine|textNoSuggestions" />
+
+            <EditText
+                android:id="@+id/output"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="80dp"
+                android:enabled="false"
+                android:background="@drawable/my_edittext"
+                android:paddingVertical="20dp"
+                android:paddingHorizontal="7dp"
+                android:textSize="23sp"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorHint"
+                android:inputType="textMultiLine|textNoSuggestions" />
+
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
