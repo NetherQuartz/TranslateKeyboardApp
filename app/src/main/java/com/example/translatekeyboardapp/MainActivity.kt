@@ -41,14 +41,14 @@ class MainActivity : AppCompatActivity() {
 
         input.addTextChangedListener(object : TextWatcher {
 
-            private var layout: Layouts = Layouts.Any
-
             override fun afterTextChanged(text: Editable?) {
                 if (text == null || input.text.isEmpty()) {
                     output.setText("")
                     output.hint = ""
                     return
                 }
+
+                var layout: Layouts = Layouts.Any
 
                 for (c in text) {
                     layout = when {
@@ -64,6 +64,7 @@ class MainActivity : AppCompatActivity() {
 
                 when (layout) {
                     Layouts.Any -> {
+                        output.setText("")
                         output.hint = resources.getString(R.string.ambiguous_text)
                     }
                     Layouts.En -> {
