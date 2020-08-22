@@ -1,4 +1,4 @@
-package com.example.translatekeyboardapp
+package ru.vlarkin.translatekeyboardapp
 
 import android.content.ClipData
 import android.content.ClipboardManager
@@ -48,7 +48,8 @@ class MainActivity : AppCompatActivity() {
                     return
                 }
 
-                var layout: Layouts = Layouts.Any
+                var layout: Layouts =
+                    Layouts.Any
 
                 for (c in text) {
                     layout = when {

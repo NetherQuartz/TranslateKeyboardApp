@@ -1,4 +1,4 @@
-package com.example.translatekeyboardapp
+package ru.vlarkin.translatekeyboardapp
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

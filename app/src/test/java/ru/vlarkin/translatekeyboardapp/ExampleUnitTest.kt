@@ -1,4 +1,4 @@
-package com.example.translatekeyboardapp
+package ru.vlarkin.translatekeyboardapp
 
 import org.junit.Test
 
