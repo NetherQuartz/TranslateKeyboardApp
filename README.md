@@ -8,4 +8,4 @@ Android app to translate text from QWERTY keyboard layout to ЙЦУКЕН (Russi
 ![screensot of Russian UI](screenshots/screenshot_ru.jpg)
 
 ## Credits
-Design — [Lar4eeck](https://lar4eeck.carrd.co)
+Design — [lChristopher](http://lChristopher.carrd.co)
